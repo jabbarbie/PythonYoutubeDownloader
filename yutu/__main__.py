@@ -1,3 +1,8 @@
+try:
+    if not import pytube:
+        raise Exception('pytube module not found!')
+except Exception as Pesan:
+    print(f'Error {Pesan}')
 import sys
 import time
 from urllib.parse import urlparse, parse_qs
