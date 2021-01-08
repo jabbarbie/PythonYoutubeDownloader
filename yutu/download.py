@@ -4,7 +4,7 @@ from helpers import cls, s, cetakgaris, garis
 
 # Cek Paket PYTube
 try:
-    from pytube import Stream, YouTube
+    from pytubex import Stream, YouTube
 except ImportError:
     print(s(prRed("Pytube tidak ditemukan")))
     print(s("Install terlebih dahulu untuk melanjutkan"))
