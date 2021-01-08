@@ -1,3 +1,4 @@
+
 import sys
 import time
 from urllib.parse import urlparse, parse_qs
@@ -7,6 +8,9 @@ from warna import prRed, prCyan, prYellow, prGreen
 from logs import Logs
 from banner import Banner
 from version import __constributor__
+
+# untuk keperluan animasi loading
+
 
 def main(bukaBanner = True, debug = False):
     B = Banner(True)

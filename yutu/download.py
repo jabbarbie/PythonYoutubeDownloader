@@ -1,10 +1,10 @@
 import sys
 from warna import prCyan, prYellow, prLightGray, prRed, prGreen
-from helpers import cls, s, cetakgaris, garis
+from helpers import cls, s, cetakgaris, garis, done
 
 # Cek Paket PYTube
 try:
-    from pytubex import Stream, YouTube
+    from pytube import Stream, YouTube
 except ImportError:
     print(s(prRed("Pytube tidak ditemukan")))
     print(s("Install terlebih dahulu untuk melanjutkan"))
@@ -14,7 +14,7 @@ except ImportError:
 from ffmpeg import RewriteFunction
 from urllib.parse import urlparse, parse_qs
 
-from helpers import ceksize, pilihAngka
+from helpers import ceksize, pilihAngka, tunggu
 from logs import Logs
 import time
 from banner import Banner
@@ -140,10 +140,11 @@ class DownloadYT(RewriteFunction):
         B.cetakbanner()
         cetakgaris("Pilih Resolusi Video")
 
-
+        # tunggu()
         self._YT = YouTube(self._link, on_progress_callback=on_progress)
+        done = True
+
         self._YT.check_availability
-        
 
 
         self.infoVideo()

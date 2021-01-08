@@ -1,6 +1,24 @@
-import sys
-import os
+import sys, os, time
 from warna import prCyan, prRed, prYellow
+
+from threading import Thread
+from itertools import cycle
+
+done = False
+
+def animasi():
+    global done
+    for x in cycle(['|', '/', '-', '\\']):
+        if done:
+            break
+        sys.stdout.write('\r' + x)
+        sys.stdout.flush()
+        time.sleep(0.1)
+    sys.stdout.write('\rDone!     ')
+
+def tunggu():
+    Thread(target=animasi).start()
+
 
 def s(kata)->str:
     return "  %s" % (kata)
