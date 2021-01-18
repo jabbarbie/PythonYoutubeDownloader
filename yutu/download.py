@@ -22,7 +22,7 @@ import sys
 from cli import on_progress
 
 class DownloadYT(RewriteFunction):
-    def __init__(self, isDebug=False):
+    def __init__(self, isDebug=False, link = None):
         """ Constructor 
         :param boolean debug:
             untuk mengecek dalam mode pengembang atau tidak
@@ -34,6 +34,9 @@ class DownloadYT(RewriteFunction):
         self._isPlaylist: bool = False
         self._YT = YouTube
         self._savePath = 'D:/b'
+
+        if not link == None:
+            self._link = link
         
     @property
     def isDebug(self):
@@ -131,7 +134,7 @@ class DownloadYT(RewriteFunction):
 
         if(self._isDebug):
             print(s("Mode Debug Active"))
-            
+        
         if self._link is None:
             self.tanyaLink()
         

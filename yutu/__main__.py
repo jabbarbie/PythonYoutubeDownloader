@@ -75,7 +75,12 @@ def main(bukaBanner = True, debug = False):
     cls
     main(False)
 
-
-main(debug = True)
+if (len(sys.argv) > 1):
+	print(sys.argv[1])
+	from download import DownloadYT
+	DLYt = DownloadYT(False, sys.argv[1])
+	DLYt.run()
+else:
+	main(debug = True)
 
         
